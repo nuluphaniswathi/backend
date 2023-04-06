@@ -1,0 +1,80 @@
+###Project manager creates project_updates_details
+POST http://localhost:4000/project-manager-api/projectId/3/project-update
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoicHJvamVjdG1hbmFnZXIiLCJpYXQiOjE2Nzg3OTQwNjIsImV4cCI6MTY3OTMxMjQ2Mn0.h-S3NQUv5fSQgEjA5_qTynk_55hS-Yx2eqEkNl9UbM0 
+
+{
+    "project_id":3,
+    "Date":"2023/03/14",
+    "status_update":"project is in progress ",
+    "schedule_status":"red",
+    "resourcing_status":"amber",
+    "quality_status":"red",
+    "client_inputs":true
+}
+
+
+###Project manager raise project concerns
+POST http://localhost:4000/project-manager-api/projectId/2/project-concern-raise 
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoicHJvamVjdG1hbmFnZXIiLCJlbWFpbCI6InNlZXRoYUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY4MDE1MjIzNSwiZXhwIjoxNjgwNjcwNjM1fQ.Ic2IbICwfVvKdrYT3LkzzfF9tSyZJPR67ekaCCuX2Qs
+
+{
+    "project_id":2,
+    "concern_desc":"concern raised desc",
+    "raised_by":"projectmanager",
+    "raised_on_date":"2023/01/20",
+    "severity":"medium",
+    "concern_raised_internally":"yes",
+    "status":true,
+    "mitigated_on":"2023/01/20"
+}
+
+###GET projects  project manager
+GET http://localhost:4000/project-manager-api/projects/portfolio-dashboard/projectManagerEmail
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoicHJvamVjdG1hbmFnZXIiLCJlbWFpbCI6InZlbmthdEB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY4MDQ1OTAwNiwiZXhwIjoxNjgxMzIzMDA2fQ.phHRXHflkjqJoPrF0MUhobKPlI9B3_zUPcodn_gZQtA
+
+
+###GET specific project details under project manager
+GET http://localhost:4000/project-manager-api/projects/portfolio-dashboard/projectId/2 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoicHJvamVjdG1hbmFnZXIiLCJlbWFpbCI6InZlbmthdEB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY4MDQ1OTAwNiwiZXhwIjoxNjgxMzIzMDA2fQ.phHRXHflkjqJoPrF0MUhobKPlI9B3_zUPcodn_gZQtA
+
+###projectmanager can get last two weeks project update details
+GET http://localhost:4000/project-manager-api/projectupdate/lasttwoweeks/projectId/3 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoicHJvamVjdG1hbmFnZXIiLCJpYXQiOjE2Nzg3OTQwNjIsImV4cCI6MTY3OTMxMjQ2Mn0.h-S3NQUv5fSQgEjA5_qTynk_55hS-Yx2eqEkNl9UbM0
+
+
+###Project manager can update the project update details
+PUT http://localhost:4000/project-manager-api/projects/update-projectupdate/projectManagerEmail/jayram@westagilelabs.com
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoicHJvamVjdCBtYW5hZ2VyIiwiaWF0IjoxNjc4NzAxMzMyLCJleHAiOjE2NzkxMzMzMzJ9.dH-eIBb-C2h3cIH7SX8dV4v4EcV0VBeafxIfoADfggE
+
+{
+    "project_id":2,
+    "Date":"2023/03/14",
+    "status_update":"project in progress",
+    "schedule_status":"red",
+    "resourcing_status":"amber",
+    "quality_status":"red",
+    "client_inputs":false
+}
+
+###Project manager can update project concern details
+PUT http://localhost:4000/project-manager-api/update-projectconcern/projectId/3/projectManagerEmail/prasu@westagilelabs.com 
+Content-Type: application/json 
+Authorization: BearereyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoicHJvamVjdG1hbmFnZXIiLCJpYXQiOjE2Nzg3OTIwNDksImV4cCI6MTY3OTMxMDQ0OX0.4ve2TkiDXFHApxV77YDsNVupgRl7y4MGlH9l04daR1k
+
+{
+    "project_id":3,
+    "concern_desc":"concern raised desc",
+    "raised_by":"projectmanager",
+    "raised_on_date":"2023/01/20",
+    "severity":"high",
+    "concern_raised_internally":"yes",
+    "status":false,
+    "mitigated_on":"2023/01/20"
+}
+
+###Project manager can delete the project update details
+DELETE http://localhost:4000/project-manager-api/projects/delete-projectupdates/projectId/2 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoicHJvamVjdCBtYW5hZ2VyIiwiaWF0IjoxNjc4NzAxMzMyLCJleHAiOjE2NzkxMzMzMzJ9.dH-eIBb-C2h3cIH7SX8dV4v4EcV0VBeafxIfoADfggE

@@ -1,0 +1,65 @@
+###GDO-HEAD-APIS
+###GDO-head adds employees to projects
+POST http://localhost:4000/gdoHead-api/team 
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvaGVhZCIsImlhdCI6MTY3ODc5NzE2NSwiZXhwIjoxNjc5MzE1NTY1fQ.mnchxR9PutKa6oORv11kQqTBdMoX0l9ARmb58vqKy20
+
+{
+    "project_id":5,
+    "emp_id":10,
+    "emp_name":"venky",
+    "role":"fullstack",
+    "start_date":"2022/01/15",
+    "end_date":"2023/09/8",
+    "status":"Active",
+    "billing_status":"billed",
+    "exposed_to_customer":true,
+    "allocation_type":"permanent"
+}
+
+###GDO-head raises a resourcing request
+POST http://localhost:4000/gdoHead-api/projectId/2/resourcing-request 
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiR2RvIGhlYWQiLCJpYXQiOjE2Nzg2ODcxOTgsImV4cCI6MTY3OTExOTE5OH0.Cv-PaqSfK7ByKrFKwwTzbasIGM3XFeWbFMpQO5W5qoQ
+
+{
+    "GDOEmail":"testgdo@westagilelabs.com",
+    "project_id":"3",
+    "request_desc":"need extra two resources"
+}
+
+###get project detail under specific gdo
+GET http://localhost:4000/gdoHead-api/projects/gdoemail
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvaGVhZCIsImlhdCI6MTY3ODc5Njc2MCwiZXhwIjoxNjc5MzE1MTYwfQ.dlNTBTEcqL2jKnqzdryPv_n83nyxfbdjxX9oz6cmmLo
+
+###get specific project details under gdo
+GET http://localhost:4000/gdoHead-api/projectId/5/gdoemail 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvaGVhZCIsImlhdCI6MTY3ODc5Njc2MCwiZXhwIjoxNjc5MzE1MTYwfQ.dlNTBTEcqL2jKnqzdryPv_n83nyxfbdjxX9oz6cmmLo
+
+
+###gdo can get last two weeks project update details
+GET http://localhost:4000/gdoHead-api/projectupdate/lasttwoweeks/projectId/7 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvaGVhZCIsImVtYWlsIjoidmlzaG51QHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjgwNTA1NjkwLCJleHAiOjE2ODEzNjk2OTB9.oc-FhB1dmli-dKAV1SnzezwqormUinpsO7QSKQ8r1xw
+
+###gdo update team member details
+PUT http://localhost:4000/gdoHead-api/projects/teamcomposition/updateteam/projectId/3/Empid/8
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiR2RvIGhlYWQiLCJpYXQiOjE2Nzg3OTU1NjMsImV4cCI6MTY3OTMxMzk2M30.mmn4RKqfEM8VdJ1CF-7xkbO0ZzCJkQLrTV-xeBIJD9M
+
+{
+    "project_id":3,
+    "emp_id":8,
+    "emp_name":"venkat",
+    "role":"Devops",
+    "start_date":"2022/01/15",
+    "end_date":"2023/09/8",
+    "status":"Active",
+    "billing_status":"billed",
+    "exposed_to_customer":true,
+    "allocation_type":"temporary"
+}
+
+###gdo can delete the team member from project under him
+DELETE http://localhost:4000/gdoHead-api/teamcomposition/deleteteam/projectId/7/Empid/22 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiR2RvIGhlYWQiLCJpYXQiOjE2Nzg3MDcyMDYsImV4cCI6MTY3OTEzOTIwNn0.UL8epNyPVXxqJS3gcrx8zhkRVUyIjCOwMSHHHF1haGA
+

@@ -1,0 +1,123 @@
+###Endpoint for user registration
+POST http://localhost:4000/user-api/register
+Content-Type: application/json
+
+{
+    
+    "email":"mahesh@westagilelabs.com",
+    "user_name":"mahesh",
+    "password":"mahesh"
+
+}
+
+###Endpoint for user login
+POST http://localhost:4000/user-api/login 
+Content-Type: application/json
+
+{
+    "email":"seetha@westagilelabs.com",
+    "password":"seetha"
+}
+
+###EndPoint for forget password
+POST http://localhost:4000/user-api/forget-password
+Content-Type: application/json
+
+{
+  "email":"n170210@rguktn.ac.in"
+}
+
+###Endpoint for reset password
+POST http://localhost:4000/user-api/reset-password/email/n170210@rguktn.ac.in
+Content-Type: application/json
+
+{
+    "otp":394889,
+    "password":"NPHANISWATHI"
+}
+
+
+###Assigning role to user by superadmin
+PUT http://localhost:4000/superadmin-api/user/role
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZG1pbiIsImVtYWlsIjoidGVqYUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY4MDY3MTU0MSwiZXhwIjoxNjgxNTM1NTQxfQ.iPCk_IkWQiQcAFJ86SmrZydNfKHpRwYHKLgdyUiclcQ
+
+{
+    "email":"madhavi@westagilelabs.com",
+    "role":"projectmanager"
+}
+
+###super admin get the users data
+GET http://localhost:4000/superadmin-api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXIgYWRtaW4iLCJpYXQiOjE2Nzg2ODQ2ODMsImV4cCI6MTY3OTExNjY4M30.Bdtd_pQHB0cbFCzjLZ4tnvmSFK-7t-91RDcdssoywsQ
+
+###Super admin get the data whose role assigned to null
+GET http://localhost:4000/superadmin-api/users/role
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXIgYWRtaW4iLCJpYXQiOjE2Nzg2ODQ2ODMsImV4cCI6MTY3OTExNjY4M30.Bdtd_pQHB0cbFCzjLZ4tnvmSFK-7t-91RDcdssoywsQ
+
+###admin create project
+POST http://localhost:4000/admin-api/create-project 
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2Nzg3MzIzMjEsImV4cCI6MTY3OTI1MDcyMX0.fYDdS0Hm3P7RlWgTM2qi8SD4ojHIQTCLCfh64RhpbYk
+
+{
+    //"project_id" :1,
+    "project_name":"dummyproject",
+    "client":"vamsi",
+    "client_account_manager" :"ramana",
+    "status_of_project":"paused",
+    "start_date" :"2023/01/2",
+    "end_date" :"2023/09/19",
+    "overall_project_fitness_indicator":"green",
+    "Domain":"fullstack",
+    "type_of_project":"Development",
+    "team_size":2,
+    "GdoHeadEmail":"divya@westagilelabs.com",
+    "project_Manager_Email":"vishnu@westagilelabs.com"
+}
+
+###admin get all projects
+GET http://localhost:4000/admin-api/admin/portfolio-dashboard 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2Nzg3MzIzMjEsImV4cCI6MTY3OTI1MDcyMX0.fYDdS0Hm3P7RlWgTM2qi8SD4ojHIQTCLCfh64RhpbYk
+###admin can read specific projects
+GET http://localhost:4000/admin-api/admin/portfolio-dashboard/projectId/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6InRlc3RAd2VzdGFnaWxlbGFicy5jb20iLCJpYXQiOjE2ODAwODU4MTMsImV4cCI6MTY4MDYwNDIxM30.BDl85MqDhl3NSiN8AKkj_EwwManP3d8LFe2dmEb74Z0
+###admin can get last two weeks project update details
+GET http://localhost:4000/admin-api/admin/projectupdate/projectId/2 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2Nzg2ODU0NzYsImV4cCI6MTY3OTExNzQ3Nn0.G4wOPmTZgblF6L24GGUzjjHpM70rq82oxYXL1pW2RFo
+
+
+###admin update project details
+PUT http://localhost:4000/admin-api/admin/projectId/1 
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2Nzg2ODU0NzYsImV4cCI6MTY3OTExNzQ3Nn0.G4wOPmTZgblF6L24GGUzjjHpM70rq82oxYXL1pW2RFo
+
+
+{
+    "project_id" :1,
+    "project_name":"project 1",
+    "client":"satish",
+    "client_account_manager" :"ramana",
+    "status_of_project":"completed",
+    "start_date" :"2023/01/1",
+    "end_date" :"2023/09/9",
+    "overall_project_fitness_indicator":"green",
+    "Domain":"fullstack",
+    "type_of_project":"Development",
+    "team_size":4,
+    "GdoHeadEmail":"mohan@westagilelabs.com",
+    "project_Manager_Email":"vimala@westagilelabs.com"
+
+}
+
+###Admin can see the raising resource request
+GET http://localhost:4000/admin-api/admin/resourcerequest 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2Nzg2ODU0NzYsImV4cCI6MTY3OTExNzQ3Nn0.G4wOPmTZgblF6L24GGUzjjHpM70rq82oxYXL1pW2RFo
+
+
+###Admin delete a project
+DELETE http://localhost:4000/admin-api/admin/projectId/1 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2Nzg2ODU0NzYsImV4cCI6MTY3OTExNzQ3Nn0.G4wOPmTZgblF6L24GGUzjjHpM70rq82oxYXL1pW2RFo
+
+
+
